@@ -82,7 +82,6 @@ console.log(blogs)
             blog.author = author;
             blog.body = body;
             blog.date = date;
-
             return blog;
         }
         return blog;
