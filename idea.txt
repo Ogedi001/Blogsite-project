@@ -1,0 +1,4 @@
+get all blogs - GET
+add a blog - POST
+delete the blog - DELETE
+update the blog - PATCH

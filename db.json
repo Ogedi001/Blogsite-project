@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "author": "Mr. Ifeanyi",
+        "title": "Transfer live",
+        "body": "blah blah blah",
+        "date": "2023-2-7"
+    },
+    {
+        "id": 2,
+        "author": "Miss Queen",
+        "title": "Lifestyle",
+        "body": "blah blah blah",
+        "date": "2023-12-7"
+    },
+    {
+        "id": 3,
+        "author": "Jonny Doom",
+        "title": "A new dawn",
+        "body": "blah blah blah",
+        "date": "2023-12-7"
+    }
+]

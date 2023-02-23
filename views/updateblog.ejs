@@ -1,0 +1,62 @@
+<%- include('./partials/header') %>
+
+<form id="myform" >
+    <input type="text" name="id" value="13" hidden id="id">
+    <div class="mb-3">
+        <label for="author" class="form-label">Author's Name</label>
+        <input type="text" class="form-control" id="author" value="<%= blog.author %>" name="author" autocomplete="off">
+    </div>
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id= "title" value="<%= blog.title %> " name="title" autocomplete="off" >
+    </div>
+     <div class="mb-3">
+        <label for="body" class="form-label">Post Body</label>
+        <textarea name="body" class="form-control" id="body" rows="6"> <%= blog.body %> </textarea>
+        </div>
+    <input type="datetime-local" name="date" id="date">
+    <br>
+    <button class="btn btn-primary" type="submit">Update</button>
+</div>
+</form>
+
+    <%- include('./partials/footer') %> 
+    <script>
+ 
+
+ document.querySelector('#myform').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const id = document.querySelector('#id').value,
+             author = document.querySelector('#author').value,
+             title = document.querySelector('#title').value,
+             body = document.querySelector('#body').value,
+             date = document.querySelector('#date').value;
+
+             const buffer = {
+                id,
+                author,
+                title,
+                body,
+                date
+            }
+
+            const response = await fetch('http://localhost:3000/updateblog', {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "Application/json"
+                },
+                body: JSON.stringify(buffer)
+            })
+
+            const data = await response.json();
+            alert(data.message)
+
+            window.location.assign("http://localhost:3000/getblogs");
+
+        })
+    </script>
+
+
+
+</html>

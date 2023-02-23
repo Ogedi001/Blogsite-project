@@ -1,0 +1,40 @@
+<%- include('./partials/header') %>
+
+
+  <% for (let i=0; i < blogs.length; i++) { %>
+    <div class="blog">
+      <h3>Author: <%= blogs[i].author %>
+      </h3>
+      <h3>Title: <%= blogs[i].title %>
+      </h3>
+      <h5>Published: <%= blogs[i].date %>
+      </h5>
+      <p>
+        <%= blogs[i].body %><a href="/blog?id=<%= blogs[i].id %> ">...Read More</a>
+      </p>
+
+
+      <button class="btn btn-primary" onclick="updateBlogLink('<%= blogs[i].id %>')">Update blog</button>
+      <button class="btn btn-primary" onclick="deleteBlog('<%= blogs[i].id %>')">Delete Blog</button>
+      <hr>
+    </div>
+    <% } %>
+      <%- include('./partials/footer') %>
+
+
+
+        <script>
+const updateBlogLink = (id)=> window.location.assign("/updateblog?id="+ id)
+
+
+          const deleteBlog = async (id) => {
+            let url = "http://localhost:3000/deleteBlog?id=" + id
+            const response = await fetch(url, {
+              method: 'DELETE',
+            })
+            await response.json()
+            window.location.reload()
+          }
+        </script>
+
+        </html>
